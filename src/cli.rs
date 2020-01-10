@@ -6,8 +6,12 @@ pub fn run() {
   // grub command line args
   let args: Vec<String> = std::env::args().collect();
 
-  let command = &args[1];
-
   println!("Args: {:?}", args);
-  println!("Command: {}", command);
+  
+  let command = &args.get(1);
+
+  match command {
+    Some(x) => println!("Command: {}", x),
+    None => println!("Please provide command argument")
+  }
 }
